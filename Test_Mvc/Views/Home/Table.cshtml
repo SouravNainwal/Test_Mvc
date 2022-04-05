@@ -1,0 +1,22 @@
+﻿
+@model Test_Mvc.Data_Emp.
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>PHONE-NO</th>
+    </tr>
+
+    @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.name</td>
+                    <td>@item.email_id</td>
+                    <td>@item.Phone_no</td>
+                </tr>
+            }
+</table>
+
