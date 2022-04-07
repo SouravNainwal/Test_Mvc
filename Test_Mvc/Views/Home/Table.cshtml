@@ -1,22 +1,50 @@
-﻿
-@model Test_Mvc.Data_Emp.
+﻿@model IEnumerable<Test_Mvc.Models.Class1>
 
-<table>
+@{
+    ViewBag.Title = "Table";
+}
+
+<h2>Table</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddDetail")
+</p>
+<table class="table">
     <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th>EMAIL</th>
-        <th>PHONE-NO</th>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone_no)
+        </th>
+        <th></th>
     </tr>
 
-    @foreach(var item in Model)
-            {
-                <tr>
-                    <td>@item.id</td>
-                    <td>@item.name</td>
-                    <td>@item.email_id</td>
-                    <td>@item.Phone_no</td>
-                </tr>
-            }
-</table>
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.email_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Phone_no)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.id }) | |
+        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+    </td>
+</tr>
+}
 
+</table>
